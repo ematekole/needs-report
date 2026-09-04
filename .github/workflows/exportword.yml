@@ -1,0 +1,27 @@
+name: Export to Word
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download repository files
+        uses: actions/checkout@v4
+
+      - name: Convert Markdown to Word
+        uses: docker://pandoc/core:latest
+        with:
+          args: README.md -o document.docx
+
+      - name: Make Word document downloadable
+        uses: actions/upload-artifact@v4
+        with:
+          name: word-document
+          path: document.docx
+          retention-days: 30
