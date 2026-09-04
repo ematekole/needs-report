@@ -17,7 +17,7 @@ jobs:
       - name: Convert Markdown to Word
         uses: docker://pandoc/core:latest
         with:
-          args: README.md -o document.docx
+          args: needs-report/metrology-needs/safety-security/B.07.2-traceability-labs.md needs-report/metrology-needs/safety-security/B.08.2-radioactive-sorption.md needs-report/metrology-needs/safety-security/B.09.2-atom-counting.md -o document.docx
 
       - name: Make Word document downloadable
         uses: actions/upload-artifact@v4
