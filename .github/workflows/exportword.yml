@@ -17,11 +17,11 @@ jobs:
       - name: Convert Markdown to Word
         uses: docker://pandoc/core:latest
         with:
-          args: metrology-needs/safety-security/B.07.2-traceability-labs.md metrology-needs/safety-security/B.08.2-radioactive-sorption.md metrology-needs/safety-security/B.09.2-atom-counting.md -o document.docx
+          args: metrology-needs/safety-security/safety-security.md metrology-needs/safety-security/B.07.2-traceability-labs.md metrology-needs/safety-security/B.08.2-radioactive-sorption.md metrology-needs/safety-security/B.09.2-atom-counting.md metrology-needs/safety-security/C.03.4-calibration-neutron-source.md metrology-needs/safety-security/C.04.4-radionuclides-in-vivo.md metrology-needs/safety-security/C.17.3-protection-occupational.md metrology-needs/safety-security/C.20.2-testing-dosimetry-ansi.md metrology-needs/safety-security/C.21.0-surface-contamination.md metrology-needs/safety-security/E.01.1-emergency-response.md metrology-needs/safety-security/E.04.0-traceability-inspection.md metrology-needs/safety-security/E.05.0-traceability-neutrons.md -o UpdatedCombinedDocument.docx
 
       - name: Make Word document downloadable
         uses: actions/upload-artifact@v4
         with:
           name: word-document
-          path: document.docx
+          path: UpdatedCombinedDocument.docx
           retention-days: 30
